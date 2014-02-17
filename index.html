@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Taboot Tailer - Enterprise Edition</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.timer.js"></script>
+    <script type="text/javascript" src="js/querystring-0.9.0.js"></script>
+    <script type="text/javascript" src="js/loglist.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/logs.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Main body content -->
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span12">
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span3">
+	  <!-- Place holder for the site tabs (populated by javascript) -->
+          <ul class="nav nav-tabs" id="sites">
+          </ul>
+
+	  <!-- Place holder for list of logs -->
+          <ul id="loglist" class="nav nav-list">
+            <li id="logsloading" class="disabled"><a><i class="loading"></i> hold on while the list loads...</a></li>
+          </ul>
+        </div>
+
+	<!-- Welcome message -->
+        <div id="fillme" class="span9 well">
+          <p class="lead">Select a log file to follow from the list on the left</p>
+          <ul>
+            <li>Logs are checked every 5 seconds</li>
+            <li>New data is displayed at the end</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Header Navigation -->
+    <div class="navbar">
+      <div class="navbar-inner navbar-fixed-top">
+        <span class="pull-left"><a class="brand" href="index.html">Taboot Tailer - <em>Enterprise Edition</em></a></span>
+        <span class="pull-right">
+          <ul class="nav">
+	    <li class="divider-vertical"></li>
+            <li id="li-toggle_autoscroll"><a title="toggle autoscroll" rel="tooltip"><i class="icon-arrow-down"></i></a></li>
+	    <li class="divider-vertical"></li>
+            <li id="li-go_to_top"><a title="top of page" rel="tooltip"><i class="icon-arrow-up"></i></a></li>
+	    <li class="divider-vertical"></li>
+            <li id="li-download_log"><a title="download log" rel="tooltip"><i class="icon-download-alt"></i></a></li>
+	    <li class="divider-vertical"></li>
+            <li id="li-get_help"><a title="more information" rel="tooltip"><i class="icon-info-sign"></i></a></li>
+	    <li class="divider-vertical"></li>
+          </ul>
+        </span>
+      </div>
+    </div>
+
+    <!-- Help/More information -->
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">About Taboot Tailer <em>(EE)</em></h3>
+      </div>
+      <div class="modal-body">
+	<p>
+	  Taboot Tailer - <em>Enterprise Edition</em> is another fine
+	  product from GCA: Production Control. The trusted leader in
+	  release management for over 250 years.
+	</p>
+
+	<h3>Getting Help/Reporting Bugs</h3>
+
+	<ul>
+	  <li><a href="mailto:helpdesk@yoursite.com?subject=Taboot Tailer feedback"><i class="icon-envelope"></i> E-Mail Helpdesk</a></li>
+	  <li><a href="irc://irc.yoursite.com/#somechannel"><i class="icon-comment"></i> Ping YOURNAME on irc.yoursite.com in #somechannel</a></li>
+	</ul>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      </div>
+    </div>
+
+
+    <!-- Flashy alert boxes -->
+    <div class="span3">
+      <div class="alert alert-info" id="new_content_alert">
+        <i class="icon-plus icon-white"></i> new content loaded
+      </div>
+    </div>
+
+    <div class="span3">
+      <div class="alert alert-error" id="new_feature_alert">
+        <b>Oh hey</b>, this button works now! <i class="icon-hand-right"></i>
+      </div>
+    </div>
+  </body>
+</html>

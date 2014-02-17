@@ -1,0 +1,45 @@
+body {
+    padding-top: 40px;
+}
+
+.log_display-true {
+    display: inline;
+}
+
+.log_display-false {
+    display: none;
+}
+
+#logsloading {
+    display: none;
+}
+
+.loading {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-top: 1px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../img/loading.gif");
+  background-repeat: no-repeat;
+}
+
+#new_content_alert {
+    display: none;
+    margin-right: 20px;
+    position: fixed;
+    z-index: 10;
+    bottom: 0px;
+    right: 0px;
+}
+
+#new_feature_alert {
+    display: none;
+    margin-right: 20px;
+    position: fixed;
+    z-index: 1000000000000000;
+    top: 2px;
+    right: 290px;
+}
