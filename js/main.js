@@ -182,7 +182,7 @@ function start_following(log) {
         cache: false,
         type: "GET",
         'success': function(data, t, j) {
-            $("#fillme").html(data);
+            $("#fillme").html("<pre>"+data+"</pre>"); // Put it all in pre
             add_new_content_marker();
             scroll_to_new_content();
             bytes_fetched = j.responseText.length;
@@ -232,7 +232,7 @@ function refresh_log_file(log, offset) {
 function make_link(item) {
     var link_id = item.text().split('/').reverse()[0];
     var link = $('<a/>', {
-        text: item.text().replace(/taboot-/, '').replace(/.html/,'').replace(/(\.[0-9]+)/, ''),
+        text: item.text().replace(/taboot-/, '').replace(/.html/,'').replace(/.log/,'').replace(/(\.[0-9]+)/, ''),
         "class": 'linkloader',
         "id": link_id,
     });
