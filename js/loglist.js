@@ -24,7 +24,7 @@ $(document).ready(function(){
         $.ajax({
             url: SITES[CURRENT_SITE] + "/?C=M;O=D",
             cache: false,
-            dataType: 'html',
+            dataType: 'text',
             success: function(data) {
                 build_log_list(data, CURRENT_SITE);
             },
@@ -66,7 +66,7 @@ $(document).ready(function(){
             $.ajax({
                 url: SITES[CURRENT_SITE] + "/?C=M;O=D",
                 cache: false,
-                dataType: 'html',
+                dataType: 'text',
                 success: function(data) {
                     build_log_list(data, CURRENT_SITE);
                 },

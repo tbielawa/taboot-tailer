@@ -67,7 +67,7 @@ function add_logs(log_items, show, site) {
     // Called by build_log_list
 
     if (CURRENT_SITE == site) {
-	log_items.each(function(j, item) {
+       $.each(log_items, function(j, item) {
             var link = make_link($(this));
             $("#loglist").append(link);
             link.wrap('<li class="log_display-' + show.toString() + ' site-' + CURRENT_SITE + '-log"></li>');
@@ -116,8 +116,15 @@ function build_log_list(data, site) {
     // clear away the 'loading' message
     hide_loading_msg();
 
-    // Extract all the links to html files (not index sorters)
-    var links = $(data).find('a[href$="html"]');
+    // Extract all the links to file types in formats (not index sorters)
+    var links = [];
+    var formats = ['html', 'log'];
+    for (index = 0; index < formats.length; index++) {
+        var new_links = $(data).find('a[href$="'+formats[index]+'"]');
+        for (i = 0; i < new_links.length; i++) {
+            links.push(new_links[i]);
+        }
+    };
 
     // Add each link to the list and fix its pathing
     // But not all at once. There's too many!
@@ -175,7 +182,7 @@ function start_following(log) {
         cache: false,
         type: "GET",
         'success': function(data, t, j) {
-            $("#fillme").html(data);
+            $("#fillme").html("<pre>"+data+"</pre>"); // Put it all in pre
             add_new_content_marker();
             scroll_to_new_content();
             bytes_fetched = j.responseText.length;
@@ -225,7 +232,7 @@ function refresh_log_file(log, offset) {
 function make_link(item) {
     var link_id = item.text().split('/').reverse()[0];
     var link = $('<a/>', {
-        text: item.text().replace(/taboot-/, '').replace(/.html/,'').replace(/(\.[0-9]+)/, ''),
+        text: item.text().replace(/taboot-/, '').replace(/.html/,'').replace(/.log/,'').replace(/(\.[0-9]+)/, ''),
         "class": 'linkloader',
         "id": link_id,
     });
